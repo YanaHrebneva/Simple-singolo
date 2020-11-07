@@ -78,6 +78,10 @@ body {
     color: #bc5c59;
 }
 
+.burger-button {
+    display: none;
+  }
+
 /* SLIDER */
 
 .slider {
