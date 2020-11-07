@@ -1,3 +1,26 @@
+// BURGER
+
+const burgerButton = document.querySelector(".burger-button");
+const wrapperBG = document.querySelector(".header-wrapper");
+const mainNavigationBG = document.querySelector(".header-navigation__row");
+const logo = document.querySelector(".header__logo");
+const navigationItem = document.querySelectorAll(".header-navigation__item");
+const navigation = document.querySelector(".header-navigation");
+
+burgerButton.addEventListener("click", () => {
+  burgerButton.classList.toggle("burger-button-active");
+  wrapperBG.classList.toggle("header-wrapper-bg");
+  mainNavigationBG.classList.toggle(".header-navigation__row-bg");
+  logo.classList.toggle("logo-bg");
+  for (let index = 0; index < navigationItem.length; index++) {
+    navigationItem[index].classList.toggle(".header-navigation__item-bg");
+  };
+  navigation.classList.toggle(".header-navigation");
+});
+
+
+
+
 // SLIIDER
 
 const arrowLeft = document.querySelector('.slider__arrow--left');
@@ -7,6 +30,7 @@ const images = document.querySelectorAll('.slider__photo');
 
 let counter = 0;
 images[counter].style.display = 'block';
+
 arrowRight.addEventListener('click', () => {
   let nextIndex = counter + 1;
 
@@ -43,6 +67,8 @@ arrowLeft.addEventListener('click', () => {
   }
 });
 
+
+
 // PORTFOLIO
 
 const portfoliotabs = document.getElementById('portfolio-tabs');
@@ -50,6 +76,7 @@ const portfoliorandom = document.getElementById('portfolio-random');
 let arr1 = portfoliorandom.querySelectorAll('img');
 let a = 0;
 let arr2 = [];
+
 for(var i = arr1.length - 1; i >= 0; i--){
         arr2[i] = a;
 }
