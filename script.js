@@ -12,10 +12,11 @@ burgerButton.addEventListener("click", () => {
   wrapperBG.classList.toggle("header-wrapper-bg");
   mainNavigationBG.classList.toggle(".header-navigation__row-bg");
   logo.classList.toggle("logo-bg");
-  for (let index = 0; index < navigationItem.length; index++) {
-    navigationItem[index].classList.toggle(".header-navigation__item-bg");
-  };
-  navigation.classList.toggle(".header-navigation");
+  // for (let index = 0; index < navigationItem.length; index++) {
+  //   navigationItem[index].classList.toggle("header-navigation__item-bg");
+  // };
+  
+  navigation.classList.toggle("header-navigation-bg");
 });
 
 
