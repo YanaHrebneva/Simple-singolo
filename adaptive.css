@@ -2,25 +2,24 @@
 
   .wrap {
       margin: 0 auto; 
-      width: 100%;
-      
-  }
-
-  .header__logo {
-    padding-left: 20px;
+      width: 100%;      
   }
 
   .header-navigation__row {
     padding-right: 20px;
   }
 
-  .grid_services {
+  .header__logo {
+    padding-left: 20px;
+  }
+
+  .grid-services {
       grid-template-areas:
       "a a"
       "a a"
       "a a";
   }
-  .grid_portfolio {
+  .grid-portfolio {
     grid-template-areas:
       "a a a"
       "a a a"
@@ -49,9 +48,11 @@
     color: #ffffff;
     margin-bottom: 27px;
   }
+
   .header-navigation__link:hover {
     color: #f06c64;
   }
+
   .header-navigation__item:not(:last-child):after  {
     content: "";
     padding-left: 15px;
@@ -66,6 +67,22 @@
     top: 36px;
     left: 20px;
     outline: none;
+  }
+
+
+
+  .header-navigation-bg {
+    display: block;
+    position: absolute;
+    top: 130px;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    padding-top: 180px;
+    background-color:  #2D303A;
+    width: 278px;
+    height: 100%;
+    z-index: 1;
   }
 
   .burger-button-active {
@@ -98,11 +115,11 @@
     display: flex;
     flex-direction: column;
   }
+  
   .logo-bg {
     font-size: 19px;
     margin-left: 71px;
   }
-
 
   .slider-wrapper > div {
     width: 100%;
@@ -113,7 +130,7 @@
       width: 100%;
   }
   
-  .grid_services {
+  .grid-services {
     grid-template-areas:
       "a"
       "a"
@@ -127,7 +144,7 @@
       border-bottom: none;
   }
 
-  .grid_portfolio {
+  .grid-portfolio {
     position: relative;
     grid-template-areas:
       "a a"
@@ -138,13 +155,10 @@
     grid-gap: 10px;
   }
 
-  .grid_portfolio img:nth-child(1n + 9) {
+  .grid-portfolio img:nth-child(1n + 9) {
     display: none;
   }
 
-  .tab {
-    margin-left: 30px;
-  }
   .grid-service {
     margin: 0px 20px;
   }
@@ -154,7 +168,7 @@
     justify-content: center;
   }
 
-  .social_media {
+  .social-media {
     margin-top: 3px;
     margin-right: 0px;
   }
@@ -164,6 +178,11 @@
 }
 
 @media screen and (max-width: 375px) {
+
+  .our-services__content {
+    padding: 60px 10px;
+  }
+
   .tab li {
     margin-right: 2px;
     padding: 2px 4px 3px 4px;
