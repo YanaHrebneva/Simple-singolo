@@ -1,105 +1,78 @@
 // BURGER
 
-const burgerButton = document.querySelector(".burger-button");
-const wrapperBG = document.querySelector(".header-wrapper");
-const mainNavigationBG = document.querySelector(".header-navigation__row");
-const logo = document.querySelector(".header__logo");
-const navigationItem = document.querySelectorAll(".header-navigation__item");
-const navigation = document.querySelector(".header-navigation");
+const burgerButton = document.querySelector('.burger-button');
+const wrapperBG = document.querySelector('.header-wrapper');
+const mainNavigationBG = document.querySelector('.header-navigation__row');
+const logo = document.querySelector('.header__logo');
+const navigationItem = document.querySelectorAll('.header-navigation__item');
+const navigation = document.querySelector('.header-navigation');
 
-burgerButton.addEventListener("click", () => {
-  burgerButton.classList.toggle("burger-button-active");
-  wrapperBG.classList.toggle("header-wrapper-bg");
-  mainNavigationBG.classList.toggle(".header-navigation__row-bg");
-  logo.classList.toggle("logo-bg");
-  // for (let index = 0; index < navigationItem.length; index++) {
-  //   navigationItem[index].classList.toggle("header-navigation__item-bg");
-  // };
-  
-  navigation.classList.toggle("header-navigation-bg");
+burgerButton.addEventListener('click', () => {
+    burgerButton.classList.toggle('burger-button-active');
+    wrapperBG.classList.toggle('header-wrapper-bg');
+    mainNavigationBG.classList.toggle('header-navigation__row-bg');
+    logo.classList.toggle('logo-bg');
+    for (let index = 0; index < navigationItem.length; index++) {
+        navigationItem[index].classList.toggle('header-navigation__item-bg');
+};
+
+    navigation.classList.toggle('header-navigation-bg');
 });
-
 
 
 
 // SLIIDER
 
-const arrowLeft = document.querySelector('.slider__arrow--left');
-const arrowRight = document.querySelector('.slider__arrow--right');
-const sliderLine = document.querySelector('.slider__line');
-const images = document.querySelectorAll('.slider__photo');
+let slideIndex = 1;
 
-let counter = 0;
-images[counter].style.display = 'block';
+const showSlides = (n) => {
+    let i;
+    let slides = document.getElementsByClassName('slider__photo');
 
-arrowRight.addEventListener('click', () => {
-  let nextIndex = counter + 1;
+    if (n > slides.length) {
+        slideIndex = 1
+}
+    if (n < 1) {
+        slideIndex = slides.length
+}
 
-  if (nextIndex >= images.length) {
-    nextIndex = 0;
-  }
+    for (let slide of slides) {
+        slide.style.display = 'none';
+}   
+    slides[slideIndex - 1].style.display = 'block'; 
+    slides[slideIndex - 1].style.animation = 'fade 2s';
+}
 
-  const next = images[nextIndex];
-  sliderLine.append(next);
-  next.style.display = 'block';
-  next.style.animation = 'moveRight 1s';
+showSlides(slideIndex);
 
-  counter += 1;
-  if (counter >= images.length) {
-    counter = 0;
-  }
-});
+const nextSlide = () => {
+    showSlides(slideIndex += 1);
+}
 
-arrowLeft.addEventListener('click', () => {
-  let prevIndex = counter - 1;
-
-  if (prevIndex < 0) {
-    prevIndex = images.length - 1;
-  }
-
-  const prev = images[prevIndex];
-  sliderLine.append(prev);
-  prev.style.display = 'block';
-  prev.style.animation = 'moveLeft 1s';
-
-  counter -= 1;
-  if (counter < 0) {
-    counter = images.length - 1;
-  }
-});
-
+const previousSlide = () => {
+    showSlides(slideIndex -= 1);  
+}
 
 
 // PORTFOLIO
 
-const portfoliotabs = document.getElementById('portfolio-tabs');
-const portfoliorandom = document.getElementById('portfolio-random');
-let arr1 = portfoliorandom.querySelectorAll('img');
-let a = 0;
-let arr2 = [];
+const portfolioImg = document.querySelector('.grid-portfolio');
 
-for(var i = arr1.length - 1; i >= 0; i--){
-        arr2[i] = a;
-}
-portfoliotabs.querySelectorAll('li').forEach(el => {
-el.addEventListener('click', (event) =>{
-    portfoliotabs.querySelectorAll('li').forEach(el => el.classList.remove('active'));
-    event.target.classList.add('active');
-    portfoliorandom.querySelectorAll('img').forEach(el => el.remove());
-    for (var i = arr1.length - 1; i > 0; i--) {
-            var j = Math.floor(Math.random() * (i + 1));
-            var temp = arr1[i];
-            arr1[i] = arr1[j];
-            arr1[j] = temp;
+const buttonList = document.querySelector('.tab');
+buttonList.addEventListener('click', (e) => {
+    const activeButton = document.querySelector('.active');
+    activeButton.classList.remove('active');
+    const newActiveButton = e.target;
+    newActiveButton.classList.add('active');
+        for (let i = portfolioImg.children.length; i >= 0; i--) {
+            portfolioImg.appendChild(portfolioImg.children[Math.floor(Math.random() * i)]);
         }
-    while (i < arr1.length) {
-        var j = Math.floor(Math.random() * (arr1.length));
-        if (arr2[j] == a){
-            arr2[j] = a + 1;
-            portfoliorandom.prepend(arr1[j]);
-            ++i;
+})
+
+portfolioImg.addEventListener('click', (e) => {
+    const activeImage = document.querySelector('.grid-portfolio > img');
+        if (portfolioImg.contains(activeImage)) {
+            activeImage.classList.remove('.grid-portfolio > img');
         }
-    }
-    ++a;   
-});
+        e.target.parentNode.classList.add('.grid-portfolio > img');
 });
