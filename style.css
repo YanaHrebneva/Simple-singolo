@@ -129,25 +129,15 @@ body {
     width: 100%;
     position: absolute;
     display: none;
+    animation-name: fade;
 }
 
-@keyframes moveRight {
+@keyframes fade {
     from {
-        left: 100%
+        opacity: 0.4
     }
-
     to {
-        left: 0
-    }
-}
-
-@keyframes moveLeft {
-    from {
-        left: -100%
-    }
-
-    to {
-        left: 0
+        opacity: 1
     }
 }
 
@@ -355,7 +345,7 @@ footer {
     display: flex;
     padding: 20px calc((100% - 1020px) / 2);
     justify-content: space-between;
-  }
+}
 
   .copyright {
     font-style: normal;
@@ -365,20 +355,20 @@ footer {
     color: #666d89;
     margin-top: 10px;
     margin-left: 40px;
-  }
+}
 
   .social-media {
     margin-top: 3px;
     margin-right: 40px;
-  }
+}
 
   .social-media li {
     display: inline;
     margin-left: 5px;
-  }
+}
 
   .social-media li img:hover {
     cursor: pointer;
     border-radius: 50%;
     box-shadow: 0 0px 15px white;
-  }
+}
