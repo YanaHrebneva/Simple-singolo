@@ -48,10 +48,13 @@ showSlides(slideIndex);
 const nextSlide = () => {
     showSlides(slideIndex += 1);
 }
+arrowRight.addEventListener('click', nextSlide);
+
 
 const previousSlide = () => {
     showSlides(slideIndex -= 1);  
 }
+arrowLeft.addEventListener('click', previousSlide);
 
 
 // PORTFOLIO
