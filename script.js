@@ -22,7 +22,8 @@ burgerButton.addEventListener('click', () => {
 
 
 // SLIIDER
-
+const arrowLeft = document.querySelector('.slider__arrow--left');
+const arrowRight = document.querySelector('.slider__arrow--right');
 let slideIndex = 1;
 
 const showSlides = (n) => {
@@ -38,8 +39,8 @@ const showSlides = (n) => {
 
     for (let slide of slides) {
         slide.style.display = 'none';
-}   
-    slides[slideIndex - 1].style.display = 'block'; 
+}
+    slides[slideIndex - 1].style.display = 'block';
     slides[slideIndex - 1].style.animation = 'fade 2s';
 }
 
@@ -52,7 +53,7 @@ arrowRight.addEventListener('click', nextSlide);
 
 
 const previousSlide = () => {
-    showSlides(slideIndex -= 1);  
+    showSlides(slideIndex -= 1);
 }
 arrowLeft.addEventListener('click', previousSlide);
 
